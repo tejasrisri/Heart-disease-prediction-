@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview of Heart Disease Prediction</title>
+    <link rel="stylesheet" href="../Static/style.css">
+</head>
+<body>
+    <section class="main">
+        <div class="nav">
+            <h2><a href="">Heart Disease Prediction</a></h2>
+        </div>
+       <div class="container">
+        <h1>Introdution</h1><br>
+        <div class="group">
+            <div class="content">
+                <p>The most crucial part of our body is Heart. It’s a muscular organ which placed directly behind and slightly left of breastbone. Heart Disease causes highest number of deaths globally, with approximately around 17.9 million people died from it every year which means around 31% of deaths are from the heart disease as per the WHO (World Health Organization). Heart disease are also called as Cardiovascular Disease which are group of complication of the blood vessels and heart which include cerebrovascular disease, rheumatic heart disease and some other heart conditions. Four out of five heart disease deaths are from the strokes and heart attacks. Heart Disease is the most life-threatening disease in the world nowadays. Therefore, heart disease should be predicted at their early stage and healthy lifestyle are ways to prevent them.</p>
+                <p>People who are at risk of heart disease may have symptoms like high blood pressure, obesity, cholesterol, diabetes, age, etc. As there is recent improvement in medical health care is observed. The health care system has collected massive amount of data about heart disease and they have all those data and created datasets which consist of different medical parameter or features such as age, sex, blood pressure, cholesterol, chest type and so on, etc. Datasets consist of around 13 to 15 different medical parameters. These datasets are now available for analysis and to extract crucial information from it. So, we can predict the heart disease at their early stage by applying machine learning algorithms on this massive amount of data to extract features (information/medical parameters) that we will extract from datasets. Various machine learning techniques like logistic regression, naïve bayes, support vector machine, k nearest neighbor (knn), etc. we can use for predicting heart disease means to classify whether a person is having cardiovascular disease or not, after applying them on the features extraction from datasets. Different algorithms will give different accuracy, so after comparing among them we can find the best algorithm which predicts heart disease with highest accuracy. The main objective of our project is to enhance efficiency for predicting heart disease rate.</p>
+            </div>
+                <img src="../Images/heart.jpg" alt="heart image">
+        </div>
+        <p>Heart Disease has become one of the most leading cause of the death on the planet and it has become
+            most life-threatening disease. The early prediction of the heart disease will help in reducing death rate.
+            Predicting Heart Disease has become one of the most difficult challenges in the medical sector in recent
+            years. As per recent statistics, about one person dies from heart disease every minute. In the realm of
+            healthcare, a massive amount of data was discovered for which the data-science is critical for analyzing
+            this massive amount of data. This paper proposes heart disease prediction using different machinelearning algorithms like logistic regression, naïve bayes, support vector machine, k nearest neighbor
+            (knn), random forest, extreme gradient boost, etc. These machine learning algorithm techniques we
+            used to predict likelihood of person getting heart disease on the basis of features (such as cholesterol,
+            blood pressure, age, sex, etc. which were extracted from the datasets. In our research we used two
+            separate datasets. The  heart disease dataset we used was collected from very famous UCI machine
+            learning repository which has 303 record instances with 14 different attributes (13 features and one
+            target). This dataset is a combination of 5 popular
+            datasets for heart disease. This study compares the accuracy of various machine learning techniques.
+            In our research, for the  dataset first we got the  accuracy of 85.25% by     Logistic Regression. And for the  next Random Forest gave us the highest accuracy of 88.52%. Then, we
+            combined both the datasets which we used in our research for which we got the highest accuracy of
+            88.52% using Random Forest. So we will be using the Random Forest for the better accuracy.</p>
+            <br>
+            <div class="dataset">
+                <h1>Methodology of implementation</h1><br>
+                <h3>1.Dataset</h3>
+                <p>We used a dataset in this research for predicting heart disease. Which is collected from the
+                   combination of datasets collected from Kaggle.
+                    Dataset : Heart disease dataset collected from UCI machine learning repo.
+                    The first dataset that was used in this research was collected from UCI repository .
+                    The dataset contains 14 attributes out of which 13 are features and one target attribute. It has 303
+                    rows and 14 columns. So the dataset's shape is (303,14). ( <a href="https://www.kaggle.com/datasets/zeeshanmulla/heart-disease-dataset" target="_blank">Dataset Link</a> )</p>
+                    <br>
+                    <table border="1">
+                        <tr>
+                            <th>S.NO</th>
+                            <th>Parameters/Attributes</th>
+                            <th>Information</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Age</td>
+                            <td>Patient's age in years</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sex</td>
+                            <td>Gender of patient:
+                                0 = female ; 1 = male 
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>cp</td>
+                            <td>Chest pain type
+                                0 = typical angina
+                                1 = atypical angina
+                                2 = non-anginal pain
+                                3 = asymptomatic</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>trestbps</td>
+                            <td>Resting blood pressure (mm hg)</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>chol</td>
+                            <td>cholesterol(mg/dl)</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>restecg</td>
+                            <td>Resting electrographic results
+                                0 = normal
+                                1 = having ST_T_wave abnormality</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>fbs</td>
+                            <td>Fasting blood sugar
+                                0 = less than 120 mg/dl
+                                1 = more than 120 mg/dl</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>thalach</td>
+                            <td>Maximum heart rate achieved</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>exang</td>
+                            <td>Exercise induced angina
+                                0 = no
+                                1 = yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>oldpeak</td>
+                            <td>Exercise induced ST depression in comparison with rest
+                                state</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>slope</td>
+                            <td>Slope of exercise ST segment
+                                0 = unslope
+                                1 = flat
+                                2 = downslope</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>ca</td>
+                            <td>No. of major vessels[0-3] colored by fluoroscopy</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>thal</td>
+                            <td>Defect type
+                                3 = normal
+                                6 = fixed
+                                7 = reversible defect</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>target</td>
+                            <td>Patient has heart disease or not (0 = No ; 1 = Yes)</td>
+                        </tr>
+                    </table>
+                    
+            </div>
+       </div>
+    </section>
+    <section class="primary">
+        <div class="dc">
+            <h3>2.Data Cleaning</h3>
+            <br><p>
+            The dataset which is collected from  Kaggle website contain unfiltered data which must be filtered before the final data set can be used to train the model. Also, data has some categorical variables which must be modified into numerical values for which we used Pandas library of Python. In data cleaning step, first we checked whether there are any missing or junk values in the dataset for which we used the isnull() function. Then for handling categorical variables we converted them into numerical variables by creating dummy variables for each categorical variable using get_dummies() function of Pandas library.</p>
+            <br>
+           
+            
+            <h3>3.Machine Learning Algorithms:</h3>
+            <br>
+            <ul>
+                <li>Logistic Regression</li>
+                <li>Naive Bayes</li>
+                <li>K-Nearest Neighbors</li>
+                <li>Decision Tree</li>
+                <li>Random Forest</li>
+                <li>Xgboost</li>
+                <li>Support Vector Machine</li>
+            </ul>
+            <br><br>
+            <ul>
+                <li>
+                    <h4>a.Random Forest</h4>
+                    
+                    <p>Random Forest is the most famous and it is considered as the best algorithm for machine learning. It is a supervised learning algorithm. To achieve more accurate and consistent prediction, random forest creates several decision trees and combines them together. The major benefit of using it is its ability to solve both regression and classification issues. When building each individual tree, it employs bagging and feature randomness in order to produce an uncorrelated tree forest whose collective forecast has much better accuracy than any individual tree’s prediction. Bagging enhances accuracy of machine learning methods by grouping them together. In this algorithm, during the splitting of nodes it takes only random subset of nodes into an account. When splitting a node, it looks for the best feature from a random group of features rather than the most significant feature. This results into getting better accuracy.
+                        It efficiently deals with the huge datasets. It also solves the issue of overfitting in datasets.
+                        It works as follows:
+                        First, it’ll select random samples from the provided dataset. Next, for every selected sample it’ll create a decision tree and it’ll receive a forecasted result from every created decision tree.
+                        Then for each result which was predicted, it’ll perform voting and through voting it will select the best predicted result.</p>
+                        <br>
+                </li>
+                <li>
+                    <h4>b.Logistic Regression</h4>
+                    <p>Logistic regression is often used a lot of times in machine learning for predicting the likelihood of response attributes when a set of explanatory independent attributes are given. It is used when the target attribute is also known as a dependent variable having categorical values like yes/no or true/false, etc. It’s widely used for solving classification problems. It falls under the category of supervised machine learning. It efficiently solves linear and binary classification problems. It is one of the most commonly used and easy to implement algorithms. It’s a statistical technique to predict classes which are binary. When the target variable has two possible classes in that case it predicts the likelihood of occurrence of the event. In our dataset the target variable is categorical as it has only two classes-yes/no.</p><br>
+                </li>
+                <li>
+                    <h4>c.Naïve Bayes</h4>
+                    <p>It is a probabilistic machine learning algorithm which is mainly used in classification problems.
+                        11 | P a g e
+                        It’s based on Bayes theorem. It is simple and easy to build. It deals with huge datasets efficiently. It can solve complicated classification problems. The existence of a specific feature in a class is assumed to be independent of the presence of any other feature according to naïve bayes theorem.
+                        It’s formula is as follows :
+                        P(S|T) = P(T|S) * P(S) / P(T)
+                        Here, T is the event to be predicted, S is the class value for an event. This equation. will find out the class in which the expected feature for classification.</p>
+                        <br>
+                </li>
+                <li>
+                    <h4>d.Support Vector Machine (SVM)</h4>
+                    <p>It is a powerful machine learning algorithm that falls under the category of supervised learning. Many people use SVM to solve both regression and classification problems. The primary role of SVM algorithm is that it separates two classes by creating a line of hyperplanes. Data points which are closest to the hyperplane or points of the data set that, if deleted, would change the position of dividing the hyperplane are known as support vectors. As a result, they might be regarded as essential components of the data set. The margin is the distance between hyperplane and nearest data point from either collection. The goal is to select the hyperplane with the maximum possible margin between it and any point in the training set increasing the likelihood of a new data being properly classified. SVM’s main objective is to find a hyperplane in N-dimensional space which will classify all the data points. The dimension of a hyperplane is actually dependent on the quantity of input features. If input has two features in that case the hyperplane will be a line and two-dimensional plane.</p><br>
+                </li>
+                <li>
+                    <h4>e.K Nearest Neighbor (KNN)</h4>
+                    <p>KNN is a supervised machine learning algorithm. It assumes similar objects are nearer to one another. When the parameters are continuous in that case knn is preferred. In this algorithm it classifies objects by predicting their nearest neighbor. It’s simple and easy to implement and also has high speed because of which it is preferred over the other algorithms when it comes to solving classification problems. The algorithm classifies whether or not the patient has disease by taking the heart disease dataset as an input. It takes input parameters like age, sex, chol, etc and classify person with heart disease.</p>
+                    <br>
+                </li>
+                <li>
+                    <h4>f.Extreme Gradient Boosting</h4>
+                    <p>It is a class of ensemble machine learning algorithms which is mostly used to solve classification problems. The gradient is mainly useful for reducing loss function which is nothing but actual diff. between original values and predicted values. Gradient boost is a greedy algorithm that can easily overfit the training dataset in a quick time which results in improving the performance of an algorithm. Boosting is nothing but a type of ensemble machine learning model in which new models of decision trees are added to correct the errors made by previous existing models. In our research we used the XGBoost machine learning algorithm.</p><br>
+                    <p>XGBoost stands for eXtreme Gradient Boost. It’s an open-source library which provides specific implementation of a gradient boost technique. It’s a more regularized form of the gradient boost. It is much better in performance than the Gradient boost algorithms because it uses more advanced regularization (L1 & L2). It’s one of the most popular algorithms in the machine learning field because it delivers the highest performance in terms of accuracy most of the time than any other algorithm. It’s execution speed is really fast.</p>
+                    <br>
+                </li>
+            </ul>
+            <h3>4.Implementation</h3>
+            <br>
+            <p>As we already discussed in the methodology section about some of the implementation details. So, the language used in this project is Python programming. We’re running python code in anaconda navigator’s Jupyter notebook. Jupyter notebook is much faster than Python IDE tools like PyCharm or Visual studio for implementing ML algorithms. The advantage of Jupyter notebook is that while writing code, it’s really helpful for Data visualization and plotting some graphs like histogram and heatmap of correlated matrices.</p>
+                <p>Let’s revise implementation steps :</p>
+                <ol></ol>
+                a) Dataset collection.
+                b) Importing Libraries :
+                Numpy, Pandas, Scikit-learn, Matplotlib and Seaborn libraries were used.
+                c) Exploratory data analysis : For getting more insights about data.
+                d) Data cleaning and preprocessing : Checked for null and junk values using isnull() and isna().sum() functions of python.In Preprocessing phase, we did feature engineering on our dataset. As we converted categorical variables into numerical variables using get_dummies() function of Pandas library. Both our datasets contains some categorical variables
+                e) Feature Scaling : In this step, we normalize our data by applying Standardization by using StandardScalar() and fit_transform() functions of scikit-learn library.
+                f) Model selection : We first separated X’s from Y’s. X’s are features or input variables of our datasets and Y’s are dependent or target variables which are crucial for predicting disease. Then using by the importing model_selection function of the sklearn library, we splitted our X’s and Y’s into train and test split using train_test_split() function of sklearn. We splitted 80% of our data for training and 20% for testing.
+                g) Applied ML models and created a confusion matrix of all models.
+                h) Deployment of the model which gave the best accuracy.
+        </div>
+    </section>
+    <section class="secondary">
+            <h2>Model Performance Analysis </h2>
+            <div class="output">
+                
+                <img src="../Images/output.png" alt="ml techniques comparision">
+                <br>
+                <p>From the above machine learning technique analysis we can say that Logistic regression is with the accuracy of <b>85.25%</b>. And the Naive bayes classifier is with the accuracy of <b>85.25%</b>. K-Nearest Neighbour with the accuracy of <b>68.85%</b>. Descision tree with <b>81.97%</b> accuracy. Random Forest is with the accuracy of 88.52%. And the xgboost is with the accuracy of <b> 78.69%</b> . The Support Vector Machine (SVM) with <b>81.97%</b> . And we can say that the <b>Random Forest</b>  machine learning technique is more efficient that any other machine learning techniques. </p>
+            </div>
+    </section>
+</body>
+<footer><center>
+    © Tejasri - All Rights Reserved.
+</center></footer>
+</html>

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main .nav h2 a{
+text-decoration: none;
+color: white;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.main .nav{
+    color: white;
+    background: #000;
+    padding: 1rem;
+}
+.primary {
+    margin: 2rem;
+}
+
+::selection{
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+.main .container{
+    padding: 2rem;
+    /* position: relative; */
+}
+p{
+    text-align: justify;
+    line-height: 23px;
+}
+.main .container img{
+    /* float: right; */
+    /* position: relative; */
+    border-radius: 20px;
+    height: 40vh;
+    width: 60vw;
+}
+ul li{
+    line-height: 25px;
+}
+.main .container .group{
+    display: flex;
+    justify-content: space-between;
+}
+.main .container .group p{
+    margin: 1rem;
+}
+.main .container .group img{
+    margin: 0 1rem;
+}
+.main .dataset table tr th,td{
+    padding: .4rem;
+}
+.secondary{
+    margin: 2rem;
+}
+.secondary .output img{
+    height: 40vh;
+    width: auto;
+}
+@media screen and (max-width:950px) {
+    .main .container .group{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}

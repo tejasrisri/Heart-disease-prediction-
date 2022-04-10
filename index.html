@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .main .nav {
+            background: #000;
+            color: white;
+            padding: .6rem;
+        }
+        .main .nav a{
+            text-decoration: none;
+            color: white;
+        }
+        .main .nav a:visited{
+            color: white;
+        }
+        .main .main-container .model .center{
+            display: flex;
+            justify-content: center;
+        }
+        .main .main-container .model .form form{
+            height: 70vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+        .main .main-container .model .form form .mg{
+            display: flex;
+            
+            width: 50vw;
+            justify-content: space-between;
+        }
+        .main .main-container .model .form form .mg5{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .main .main-container .model .form form .submit input[type="submit"]{
+            padding: .5rem;
+            background-color:dodgerblue;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        } 
+        .main .main-container .model .outer{
+            display: flex;
+           
+            justify-content: center;
+           
+        }
+        .main .main-container .model .outer .res{
+            background: #000;
+            color: white;
+            padding: .5rem;
+            border-radius: 10px;
+        }
+        input[type="text"],select,input[type="number"]{
+            height: 1.4rem;
+        }
+        input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+@media screen and (max-width:1170px) {
+    .main .main-container .model .form form .mg{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="nav">
+            <h1><a href="/">Heart Disease Prediction</a></h1>
+        </div>
+        <div class="main-container">
+            <div class="model">
+                <br>
+                <div class="center">
+                <h1>Prediction of Heart Disease Using Machine Learning</h1></div>
+                <br>
+                <div class="form">
+                    <form action="/predict" method="post">
+                        <div class="mg mg1">
+                            <div class="group">
+                                <label>Enter your Age:</label><br>
+                                <input type="number" name="age" id="age" min="1" required placeholder="Ex:45">
+                            </div>
+                            <div class="group">
+                                <label>Select your Gender</label>
+                                <br>
+                                <select name="gender" id="gender" required>
+                                    <option value="0">0 - Female</option>
+                                    <option value="1">1 - Male</option>
+                                </select>
+                            </div>
+                            <div class="group">
+                                <label>Chest Pain Type</label>
+                                <br>
+                                <select name="chestpain" id="chestpain" required>
+                                    <option value="0">0 - typical angina</option>
+                                    <option value="1">1 - atypical angina</option>
+                                    <option value="2">2 - non-anginal pain</option>
+                                    <option value="3">3 - asymptomatic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="mg mg2">
+                            <div class="group">
+                                <label>Resting Blood Pressure Reading </label>
+                                <br>
+                                <input type="number" name="bp" id="bp" max="370" required placeholder="Ex:145">
+                            </div>
+                            
+                            <div class="group">
+                                <label>Serum Cholesterol Amount</label>
+                                <br>
+                                <input type="number" name="cholestrol" id="cholestrol" required placeholder="Ex:233">
+                            </div>
+                            
+                            <div class="group">
+                                <label>Enter your Sugar level</label>
+                                <br>
+                                <input type="number" name="sugar" id="sugar" min="0" max="1" required
+                                    placeholder="Ex: 0 or 1">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="mg mg3">
+                            <div class="group">
+
+                                <label>cardiography reading</label>
+                                <br>
+                                <input type="number" name="restecg" id="restecg" min="0" max="1" required
+                                    placeholder="Ex: 0 or 1">
+                            </div>
+                           
+                            <div class="group">
+                                <label>Thalach</label>
+                                <br>
+                                <input type="number" name="thalach" id="thalach" required placeholder="Ex: 150">
+                            </div>
+                            <div class="group">
+                                <label>Exang</label>
+                                <br>
+                                <input type="number" name="exang" id="exang" min="0" max="1" required
+                                    placeholder="Ex: 0 or 1">
+                            </div>
+                        </div>
+
+                        <div class="mg mg4">
+                       
+                        
+                        <div class="group">
+                            <label>oldpeak</label><br>
+                            <input type="text" name="oldpeak" id="oldpeak" placeholder="Ex: 2.3">
+
+                        </div>
+                        <div class="group">
+                            <label>Slope</label>
+                            <br>
+                            <input type="number" name="slope" id="slope" min="0" max="2" required
+                                placeholder="Ex: 0 to 3">
+                        </div>
+                        <div class="group">
+                            <label>ca</label>
+                            <br>
+                            <input type="number" name="ca" id="ca" min="0" max="4" required placeholder="Ex: 0 to 4">
+                        </div>
+                    </div>
+                        
+                        <div class="mg mg5">
+                        
+                        <br>
+                        <div class="group">
+                            <label>Thal</label><br>
+                            <input type="number" name="thal" id="thal" min="0" max="4" required
+                                placeholder="Ex: 0 to 4">
+                        </div>
+                    </div>
+                        <div class="submit">
+                            <center><input type="submit" value="Predict"></center>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+                <br>
+                <div class="outer">
+                <div class="res">
+                    <h2>{{ans}}</h2>
+                </div></div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
